@@ -15,9 +15,11 @@
 //     return view('welcome');
 // });
 //Route::get('/welcome','UserController');
-Route::get('/', 'UserController@login');
-Route::get('/main', 'UserController@welcome');
-Route::get('/logout', 'UserController@login');
+//Route::get('/', 'UserController@retrieve');
+Route::get('/home', 'UserController@welcome');
+//Route::get('/logout', 'UserController@login');
+//Route::get('/add', 'Usercontroller@add');
+//Route::get('/retrieve', 'Usercontroller@retrieve');
 ?>
 
 
