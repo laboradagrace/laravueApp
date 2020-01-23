@@ -4,8 +4,6 @@
 <link href="css/main.css" rel= "stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-<!------ Include the above in your HEAD tag ---------->
-
 <section>
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
@@ -18,7 +16,6 @@
             <div class="carousel-item">
                 <img src="https://www.bworldonline.com/wp-content/uploads/2017/05/Bus-terminal-Cebu-South-PIO.jpg?format=jpj&name=large" class="d-block w-100" alt="...">
             </div>
-            <!--https://upload.wikimedia.org/wikipedia/commons/8/8d/Yarra_Night_Panorama%2C_Melbourne_-_Feb_2005.jpg-->
         </div>
         <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -36,20 +33,19 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <!-- <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
-                        </div> -->
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                <option>From</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
+                            <select class="form-control search-slt" v-model="selectedfrom" id="exampleFormControlSelect1">
+                                
+                                <option select = "selected" v-for="from in fromPlaces" v-bind:key="from.placeName" >
+                                 {{from.placeName}}
+                                
+                                </option>
+                                
+                            
                             </select>
+                            
                         </div>
+                       
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1">
                                 <option>To</option>
@@ -62,16 +58,38 @@
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                            <button type="button" class="btn btn-danger wrn-btn"><i class="fa fa-search" aria-hidden="true" @click="search()"></i> Search</button>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-</section>   
+</section>
+<div>
+   <h1>Available Busses</h1>
+</div>
+<busCard></busCard>
 </div>
 </template>
 <script>
+import busCard from "./busCard.vue";
+export default{
+    components:{
+        busCard
+    },
+    data(){
+        return{
+            selectedfrom:'From',
+            fromPlaces:[
+                {placeName:'sampleplace'},
+                {placeName:'another'}
+            ]
+        }
+    },
+    mounted(){
 
+    }
+ 
+}
 </script>

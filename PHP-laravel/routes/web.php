@@ -14,11 +14,16 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-//Route::get('/welcome','UserController');
-//Route::get('/', 'UserController@retrieve');
-Route::get('/home', 'UserController@welcome');
+Route::get('/welcome','UserController@welcome');
+Route::get('/home', 'UserController@retrieve');
+//Route::get('/', 'UserController@welcome');
 //Route::get('/logout', 'UserController@login');
-//Route::get('/add', 'Usercontroller@add');
+Route::get('/add', 'Usercontroller@add');
+Route::post('/add', 'Usercontroller@store')->name('store');
+Route::post('/delete/{id}', 'Usercontroller@destroy')->name('destroy');
+Route::get('/edit/{id}', 'Usercontroller@edit');
+Route::post('/edit/{id}', 'Usercontroller@update')->name('update');
+Route::get('/retrieve', 'Usercontroller@retrieve');
 //Route::get('/retrieve', 'Usercontroller@retrieve');
 ?>
 

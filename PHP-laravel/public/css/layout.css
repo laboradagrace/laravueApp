@@ -8,6 +8,16 @@ body{
   overflow: hidden;
   background-color: inherit;
   padding: 20px 10px;
+
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
 }
 
 /* Style the header links */
